@@ -19,9 +19,9 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="container font-aclonica p-4 w-full">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="w-36">
+    <nav className="container m-auto font-aclonica p-4 w-full">
+      <div className=" mx-auto flex justify-between items-center">
+        <div className="w-32">
           <NavLink to="/">
             <img src={logo} alt="logo" />
           </NavLink>
