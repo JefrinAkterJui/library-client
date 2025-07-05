@@ -18,7 +18,7 @@ export const baseApi = createApi({
     }),
     getSingleBook: build.query({
       query: (id) => `/books/${id}`,
-      providesTags: (result, error, id) => [{ type: 'Book', id }],
+      providesTags: (id) => [{ type: 'Book', id }],
     }),
     createBook: build.mutation({
       query: (bookData) => ({
@@ -41,7 +41,7 @@ export const baseApi = createApi({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'Book', id: arg.id }],
+      invalidatesTags: (arg) => [{ type: 'Book', id: arg.id }],
     }),
     borrowBook: build.mutation({
       query: (borrowData) => ({

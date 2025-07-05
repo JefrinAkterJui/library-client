@@ -25,8 +25,8 @@ export function BorrowBookPage (){
       dueDate: undefined,
     },
   });
-  const { data: bookResponse, isLoading: isBookLoading } = useGetSingleBookQuery(id);
-  const [borrowBook, { isLoading: isBorrowing }] = useBorrowBookMutation();
+  const { data: bookResponse, } = useGetSingleBookQuery(id);
+  const [borrowBook] = useBorrowBookMutation();
 
  const onSubmit: SubmitHandler<IBorrowBook> = async (data) => {
   const availableCopies = bookResponse?.data?.copies;

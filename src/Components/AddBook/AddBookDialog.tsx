@@ -1,4 +1,4 @@
-import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
@@ -23,7 +23,7 @@ export function AddBookDialog() {
       available: true, 
     }
   });
-  const [createBook, {data}] = useCreateBookMutation()
+  const [createBook] = useCreateBookMutation()
   const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<IBook> = async (data) => {

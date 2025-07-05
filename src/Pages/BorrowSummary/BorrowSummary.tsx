@@ -34,7 +34,7 @@ const BorrowSummary = () => {
     </div>
 
     <div className="max-w-2xl mx-auto space-y-6">
-      { data.data.map((summary, index) => (
+      { data.data.map((summary: any, index:any) => (
         <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
           <div className="p-6">
             <div className="flex justify-between items-start">
