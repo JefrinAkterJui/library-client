@@ -11,7 +11,7 @@ export const baseApi = createApi({
       providesTags: (result) =>
         result?.data
           ? [
-              ...result.data.map(({ _id }) => ({ type: 'Book', id: _id })),
+              ...result.data.map(({ _id }: { _id: string }) => ({ type: 'Book', id: _id })),
               { type: 'BookList' },
             ]
           : [{ type: 'BookList' }],
