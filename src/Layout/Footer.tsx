@@ -19,10 +19,10 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <NavLink to="/all-books" className="text-gray-400 hover:text-white transition-colors duration-300">All Books</NavLink>
+                <NavLink to="/books" className="text-gray-400 hover:text-white transition-colors duration-300">All Books</NavLink>
               </li>
               <li>
-                <NavLink to="/add-book" className="text-gray-400 hover:text-white transition-colors duration-300">Add Book</NavLink>
+                <NavLink to="/create-book" className="text-gray-400 hover:text-white transition-colors duration-300">Add Book</NavLink>
               </li>
               <li>
                 <NavLink to="/borrow-summary" className="text-gray-400 hover:text-white transition-colors duration-300">Borrow Summary</NavLink>

@@ -50,5 +50,6 @@ export const {
   useCreateBookMutation, 
   useDeleteBookMutation, 
   useBorrowBookMutation,
-  useGetBorrowSummeryQuery, 
+  useGetBorrowSummeryQuery,
+  useGetSingleBookQuery 
 } = baseApi;

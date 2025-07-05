@@ -5,6 +5,7 @@ import AllBooks from "../Pages/AllBooks/AllBooks.js";
 import AddBook from "@/Pages/AddBooks/AddBook.js";
 import BorrowBook from "@/Pages/BorrowBook/BorrowBook.js";
 import BorrowSummary from "@/Pages/BorrowSummary/BorrowSummary.js";
+import BookDetails from "@/Components/BookDetails/BookDetails.js";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path:'/borrow-summary',
                 element:<BorrowSummary/>
+            },
+            {
+                path:'/books/:id',
+                element:<BookDetails/>
             }
         ]
     }
