@@ -1,11 +1,11 @@
-import { useDeleteBookMutation, useGetBookQuery } from "@/Redux/Api/baseApi";
+import { useDeleteBookMutation, useGetAllBooksQuery } from "@/Redux/Api/baseApi";
 import type { IBook } from "@/type";
 import BookCard from "../Cards/BookCard";
 import Swal from 'sweetalert2';
 
 
 const AllBooksPage: React.FC = () => {
-  const { data, isLoading } = useGetBookQuery(undefined);
+  const { data, isLoading } = useGetAllBooksQuery(undefined);
   const [deleteBook] = useDeleteBookMutation()
   
 if (isLoading) {

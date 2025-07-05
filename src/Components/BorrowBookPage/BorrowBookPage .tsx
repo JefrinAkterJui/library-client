@@ -9,16 +9,14 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { cn } from "@/lib/utils";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "../ui/calendar";
-import { useBorrowBookMutation } from "@/Redux/Api/baseApi";
+import { useBorrowBookMutation, useGetSingleBookQuery } from "@/Redux/Api/baseApi";
 import { useNavigate, useParams } from "react-router-dom";
 import { format } from "date-fns";
 
 
 export function BorrowBookPage (){
-  const [borrowBook, {data}] = useBorrowBookMutation()
   const navigate = useNavigate()
   const {id} = useParams()
-  console.log(id)
 
   const form = useForm<IBorrowBook>({
     defaultValues: {
@@ -27,12 +25,20 @@ export function BorrowBookPage (){
       dueDate: undefined,
     },
   });
+  const { data: bookResponse, isLoading: isBookLoading } = useGetSingleBookQuery(id);
+  const [borrowBook, { isLoading: isBorrowing }] = useBorrowBookMutation();
 
  const onSubmit: SubmitHandler<IBorrowBook> = async (data) => {
+  const availableCopies = bookResponse?.data?.copies;
+
+  if (availableCopies !== undefined && data.quantity > availableCopies) {
+      toast.error(`You cannot borrow more than ${availableCopies} copies.`);
+      return; 
+  }
   console.log(data)
     try {
       const res = await borrowBook(data).unwrap()
-
+      console.log(data.dueDate)
       if (res.data) {
         console.log('hocche')
         toast.success(`You have successfully borrowed"`);

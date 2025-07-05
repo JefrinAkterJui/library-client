@@ -1,5 +1,6 @@
 import { useGetBorrowSummeryQuery } from "@/Redux/Api/baseApi"
 import { NavLink } from "react-router-dom";
+import { format } from "date-fns";
 
 const BorrowSummary = () => {
 
@@ -47,6 +48,9 @@ const BorrowSummary = () => {
                 <p className="text-sm text-gray-500 mt-2 font-mono">
                   ISBN: {summary.book.isbn}
                 </p>
+                <p className="text-sm text-gray-600 mt-2 font-semibold">
+                  Due Date: {summary.dueDate ? format(new Date(summary.dueDate), 'PPP') : 'Not specified'}
+                </p>
               </div>
               <div className="text-right ml-4">
                 <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider">
@@ -62,7 +66,7 @@ const BorrowSummary = () => {
       ))}
     </div>
     <div className="text-center mt-12">
-      <NavLink to={'/books'} className="bg-gray-800 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors duration-300">
+      <NavLink to={'/books'} className="bg-[#B91C1C] text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors duration-300">
         Back to All Books
       </NavLink>
     </div>
