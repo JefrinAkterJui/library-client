@@ -24,8 +24,30 @@ export const baseApi = createApi({
           method: "DELETE"
        }),
        invalidatesTags:["books"]
-    })
+    }),
+    getSingleBook: build.query({
+      query: (id) => `/books/${id}`,
+      providesTags: (result, error, id) => [{ type: 'books', id }],
+    }),
+    borrowBook: build.mutation({
+      query:(borrowData)=>({
+
+        url: "/borrow",
+        method: "POST",
+        body: borrowData
+      }),
+      invalidatesTags:["books"]
+    }),
+    getBorrowSummery: build.query({
+      query: () => `/borrow`,
+      providesTags:["books"]
+    }),
   }),
 });
 
-export const { useGetBookQuery, useCreateBookMutation , useDeleteBookMutation } = baseApi;
+export const { 
+  useGetBookQuery, 
+  useCreateBookMutation, 
+  useDeleteBookMutation, 
+  useBorrowBookMutation 
+} = baseApi;
