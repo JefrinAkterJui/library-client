@@ -45,10 +45,10 @@ const Navbar: React.FC = () => {
       </div>
       {isOpen && (
         <div className="md:hidden mt-4 flex flex-col items-center space-y-4">
-          <NavLink to="/all-books" className={getNavLinkClass} onClick={toggleMenu}>
+          <NavLink to="/books" className={getNavLinkClass} onClick={toggleMenu}>
             All Books
           </NavLink>
-          <NavLink to="/add-book" className={getNavLinkClass} onClick={toggleMenu}>
+          <NavLink to="/create-book" className={getNavLinkClass} onClick={toggleMenu}>
             Add Book
           </NavLink>
           <NavLink to="/borrow-summary" className={getNavLinkClass} onClick={toggleMenu}>
