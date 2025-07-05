@@ -1,5 +1,6 @@
 import React from 'react';
 import banner from '../../assets/banner.png'
+import { Link } from 'react-router-dom';
 
 const Banner: React.FC = () => {
   return (
@@ -15,9 +16,12 @@ const Banner: React.FC = () => {
           <p className="max-w-lg mx-auto md:mx-0 text-base md:text-lg text-gray-600 font-sans leading-relaxed mb-8">
             Dive into a universe of stories and knowledge. Our platform helps you discover new books, track your reading progress, and manage your personal library effortlessly.
           </p>
-          <button className="bg-[#b93636] text-white font-semibold py-3 px-10 rounded-lg hover:bg-red-700 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transform hover:scale-105">
-            READ MORE
-          </button>
+          <Link
+            to="/books"
+            className="bg-[#b93636] text-white font-semibold py-3 px-10 rounded-lg hover:bg-red-700 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transform hover:scale-105"
+          >
+          See All Books
+          </Link>
         </div>
         <div className="flex-1 order-1 md:order-2">
           <img 
